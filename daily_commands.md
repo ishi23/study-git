@@ -25,6 +25,7 @@
 ### `git log`
 - commitのログを表示
 - --oneline オプションで簡潔に
+- --all オプションで全ブランチのログ
 - --graphオプションで各コミットを線で繋ぐ
 
 ### `git remote -v`
