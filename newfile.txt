@@ -1,2 +1,4 @@
 test
+<<<<<<< HEAD
 edit in master branch
+
