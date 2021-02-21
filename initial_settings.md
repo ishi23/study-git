@@ -25,7 +25,7 @@ Host *
 
 
 
-### Gitの設定
+### Gitの初期設定
 - 設定ファイルは二種類。globalな設定ファイルは ~/.gitconfig で、リポ毎の設定は .git/config
 - 上記のファイルを直接更新することでの設定も可能だが、`git config`コマンドから書き換えるのが安全。`--global`オプションをつけると.gitconfigの方を書き換える
 - GitHubのアカウントを設定
@@ -39,3 +39,40 @@ $ git config --global user.email "<email>"
 $ git config --global --replace-all core.pager "less -F -X"
 ```
 
+
+### diff可視化ツール p4mergeのインストールと設定（オプション）
+- diffを見やすくしないとよくわからん状態になるので、そのためのツール。
+- p4mergeで検索
+- HPで"ダウンロード" → OSとか選択するとダウンロードできる
+- Macの場合、ダウンロードしたものをダブルクリックしてp4mergeをApplicationsフォルダにD＆D
+- `$ ls /Applications/p4merge.app/Contents/MacOS/` でp4mergeが入っていることを確認
+- `$ ./p4merge`で起動できることを確認
+- 以下のコマンドでgitからp4mergeを起動できるように設定する
+```
+$ git config --global diff.tool p4merge
+$ git config --global difftool.p4merge.path /Applications/p4merge.app/Contents/MacOS/p4merge
+$ git config --global difftool.prompt false
+$ git config --global merge.tool p4merge
+$ git config --global mergetool.p4merge.path /Applications/p4merge.app/Contents/MacOS/p4merge
+$ git config --global mergetool.prompt false
+```
+- `$ cat ~/.gitconfig` で正しく設定されていることを確認。下記のようになっているはず。
+```
+[user]
+	name = ishi23
+	email = ********@gmail.com
+[core]
+	pager = less -F -X
+[diff]
+	tool = p4merge
+[difftool "p4merge"]
+	path = /Applications/p4merge.app/Contents/MacOS/p4merge
+[difftool]
+	prompt = false
+[merge]
+	tool = p4merge
+[mergetool "p4merge"]
+	path = /Applications/p4merge.app/Contents/MacOS/p4merge
+[mergetool]
+	prompt = false
+```
