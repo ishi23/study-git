@@ -2,7 +2,7 @@
 ### SSH設定: 高セキュリティな接続で一度設定すれば簡単なので、基本この方式を取る
 - `$ ssh-keygen -t ed25519 -C "<email address>"` -> SSHキーが`~/.ssh/id_ed25519.pub`に作成される。
 - `$ eval "$(ssh-agent -s)"` -> ssh-agentを起動させる
-- ~/.ssh/config に以下を書き込む(Macの場合。Winの場合はUseKeycahinでエラーが出たが外したら動いた)
+- ~/.ssh/config に以下を書き込む(Macの場合。WinやLinuxの場合はUseKeycahinでエラーが出たので外したら動いた)
 ```
 Host *
     AddKeysToAgent yes
@@ -18,8 +18,8 @@ Host *
 - zshの場合：以下を実行する
 - `$ cp ~/.zshrc ~/.zshrc_bk` .zshrcが更新されてしまうのでバックアップをとる
 - oh-my-zshをインストール: https://ohmyz.sh/ に行くとインストール用のコマンドが出るので、それをコピペしてターミナルで実行する
-- Powerlevel10kをcloneする: Powerlevel10kのGitHubリポジトリに行き、cloneする `$ git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/`
-- .zshrc の編集 `ZSH_THEME="powerlevel10k/powerlevel10k"`（デフォルトで違うテーマが入っている
+- Powerlevel10kをcloneする: Powerlevel10kのGitHubリポジトリに行き、cloneする `$ git clone https://github.com/romkatv/powerlevel10k.git ~/.oh-my-zsh/custom/themes/powerlevel10k`
+- .zshrc の編集 `ZSH_THEME="powerlevel10k/powerlevel10k"`（デフォルトで違うテーマが入っている)
 - command + t でターミナルのタブを開くと初期設定モードに入る
 - 質問に答えていく。好みの見た目を選んでいく。
 
